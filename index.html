@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {box-sizing: border-box}
+
+/* Set height of body and the document to 100% */
+body, html {
+  height: 100%;
+  margin: 0;
+  font-family: Arial;
+}
+
+/* Style tab links */
+.tablink {
+  background-color: #5F9EA0;
+  color: black;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  font-size: 17px;
+  width: 33.333333%;
+}
+
+.tablink:hover {
+  background-color: darkcyan;
+}
+
+/* Style the tab content (and add height:100% for full page content) */
+.tabcontent {
+  color: black;
+  display: none;
+  padding: 100px 20px;
+  height: 100%;
+}
+
+.pdf {
+        width: 100%;
+        aspect-ratio: 4 / 3;
+    }
+
+.pdf,
+html,
+body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+
+#About {background-color: baige;}
+#Projects {background-color: baige;}
+#Random {background-color: baige;}
+</style>
+</head>
+<body>
+
+<button class="tablink" onclick="openPage('About', this, 'darkcyan')" id="defaultOpen">About</button>
+<button class="tablink" onclick="openPage('Projects', this, 'darkcyan')">Projects</button>
+<button class="tablink" onclick="openPage('Random', this, 'darkcyan')">Random</button>
+
+<div id="About" class="tabcontent">
+  <h3>About</h3>
+  <p>Hello, I'm Summer. I am a student at Northwestern MSDS program specialized in Artificial Intelligence.
+    I am espcially interested in the ethical use of AI. In my free time, I love playing Splatoon and reading
+    fiction, especially horror and magical realism fiction. One of my goal is to make my own horror game one day.
+  </p>
+  <h3>My Resume</h3>
+  <object class="pdf" 
+  data= 'img/resume_verB.pdf'
+  width="800"
+  height="500">
+</object>
+  <h3>Some Links</h3>
+  <p><a href="https://www.linkedin.com/in/summer-xia-172766195/">Connect on Linkedin</a><br>
+    <a href="https://github.com/Summeryuqing01">See all my projects on GitHub</a><br>
+    <br>
+    <br>
+  </p>
+</div>
+
+<div id="Projects" class="tabcontent">
+  <h3>Projects</h3>
+  <h4>2024:</h4>
+  <p><b>Neural Networks:</b> Learning neural network architectures with experiments.(Including CNN, RNN, LSTM, etc)
+    <a href="https://github.com/Summeryuqing01/Neural-Net-Experiments">[link]</a></p>
+    <hr>
+  <h4>2023:</h4>
+  <p><b>German Credit Risk:</b>The primary objective of this project is to develop a predictive model using the German credit risk dataset that can accurately
+    forecast the credit amount that potential borrowers are likely to receive.
+    <a href="https://github.com/Summeryuqing01/German_credit_risk">[link]</a><br>
+    <br>
+    <b>Chicago Schools Data EDA:</b> My main goal is to gain insights to educational equality in Chicago. To achieve that,
+     I would like to see the student demographic and performance by location. I am hoping to learn if the school's 
+     location and student body affect the schools' college enrollmen rate.
+    <a href="https://github.com/Summeryuqing01/Python_EDA_Chicago_Schools">[link]</a> <br>
+    <hr>
+  </p>
+  <h4>2022:</h4>
+  <p><b>Survival Analysis of Political Leaders:</b>
+    This data set documents the party leadership succession in 23 parliamentary 
+    democracies(as defined by Lijphart 1999). There are 25 columns and 4559 rows 
+    in the data, it includes the country, party information, name, sex, and term 
+    information about the leaders, and it also includes a status vector which use one 
+    to indicate the leader is still in office and 0 to indicate that they are out of 
+    office. There are, however, many missing values in the data set due to the lack 
+    of information for some countries. In this project, we use tenure as the time 
+    variable which shows the leader’s time in office (in years), and status as our 
+    censoring data with 1 representing the leader’s still in office, 0 representing 
+    the leader has finished their term. The original paper studied the effect of 
+    succession on terms, in this project, however, we would like to find out if 
+    there’s any relationship between time and the length of tenure (for example, 
+    the more recent the election/ in office year is, the shorter the term is).
+    (Horiuchi and Laing, 2015)
+    <a href="https://github.com/Summeryuqing01/Survival_Analysis_Political_Leaders">[link]</a>
+    <br>
+    <br>
+    <b>Ground Ozone Data Time Series Analysis:</b>
+    This report observes the monthly average of ground-level ozone in Los Angeles, 
+    California from 2000 - 2020. Using data transformation and differencing, 
+    I find out that the original time series does not need transformation, and 
+    it has a seasonal pattern but no significant trend. I identified some models to 
+    fit by looking at the ACF anf PACF of differentiated time series, 
+    the best model with the lowest AICc for the time series is 
+    a seasonal ARIMA model with (p, d, q)×(P, D, Q) = (1, 0, 1)×(1, 1, 2).
+    <a href="https://github.com/Summeryuqing01/Time-Series-Analysis">[link]</a> <br>
+    <hr>
+  </p>
+  <h4>2021:</h4>
+  <br>
+  <br>
+</div>
+
+
+<div id="Random" class="tabcontent">
+  <h3>Random</h3>
+  <p><a href="https://stat.ink/@umikome/spl3">SplatLog</a> <br>
+  <a href="https://www.goodreads.com/umikomedesu">Goodreads</a> <br>
+  <a href = "https://linktr.ee/summerpewpew">Linktree</a></p>
+</div>
+
+<script>
+function openPage(pageName,elmnt,color) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablink");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].style.backgroundColor = "";
+  }
+  document.getElementById(pageName).style.display = "block";
+  elmnt.style.backgroundColor = color;
+}
+
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
+</script>
+   
+</body>
+</html> 
